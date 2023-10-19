@@ -1,3 +1,6 @@
+import time
+
+
 #ROOM AND ITEMS
 
 game_room = { ##### street
@@ -135,6 +138,20 @@ dict and use the copy to store gameplay state. This
 way you can replay the game multiple times.
 """
 
+#COUNT DOWN
+t = 10
+
+def countdown(t):
+    while t:
+        mins,secs = divmod(t, 60)
+        timer = "{:02d}:{:02d}".format(mins, secs)
+        print(timer, end="\r")
+        time.sleep(1)
+        t -= 1
+    print("Time is up, you didn't make it to Berghain !")
+
+
+
 INIT_GAME_STATE = {
     "current_room": game_room,
     "keys_collected": [],
@@ -194,6 +211,7 @@ def play_room(room):
     explore (list all items in this room) or examine an item found here.
     """
     game_state["current_room"] = room
+
     if(game_state["current_room"] == game_state["target_room"]):
         print("Congrats! You made it into Berhain. Enjoy Drake and have the time of your life.")
     else:
@@ -306,8 +324,9 @@ def examine_item(item_name):
     else:
         play_room(current_room)
 
+
+
 ### Starting the game
 # Making a copy of the game state
 game_state = INIT_GAME_STATE.copy()
-
 
