@@ -242,7 +242,7 @@ def play_room(room):
                 print("Only the best make it into Berghain - and today that was not you. Better luck next time!")
                 end_credits()
         else:
-            clear_output()
+            #clear_output()
             print("Not sure what you mean.")
             play_room(room)
         linebreak()
