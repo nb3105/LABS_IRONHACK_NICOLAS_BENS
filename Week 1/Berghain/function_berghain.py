@@ -145,7 +145,7 @@ def countdown(t):
         print(timer, end="\r")
         time.sleep(1)
         t -= 1
-    print("Time is up, you didn't make it to Berghain !")
+    print("Time is up, you didn't make it to Berghain!")
 
 
 #GAME INITIATION
