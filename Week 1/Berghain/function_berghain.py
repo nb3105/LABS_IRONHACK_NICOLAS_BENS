@@ -180,6 +180,7 @@ def end_credits():
     print("~~~CREDITS~~~")
     print("Game by Nico and Seb, based on an Ironhack template")
     print("Thank you for playing!")
+    sleep(3)
 
 # start_game (no input parameters)
 
