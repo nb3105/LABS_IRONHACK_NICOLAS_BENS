@@ -11,13 +11,14 @@ SELECT * FROM customer;
 SELECT title
 FROM film;
 
-SELECT name as language
+SELECT DISTINCT name AS language
 FROM language;
 
 SELECT DISTINCT release_year
 FROM film;
 
-SELECT COUNT(store_id);
+SELECT COUNT(store_id)
+from store;
 
 SELECT COUNT(staff_id)
 FROM staff;
