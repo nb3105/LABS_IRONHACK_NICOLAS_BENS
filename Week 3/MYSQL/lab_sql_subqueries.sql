@@ -32,4 +32,12 @@ WHERE actor_id IN (SELECT actor_id
 									FROM film
 									WHERE title = "Alone Trip"));
                                     
+#4 
 
+SELECT title 
+FROM film
+WHERE film_id IN (SELECT film_id
+					FROM film_category
+                    WHERE category_id IN (SELECT category_id 
+											FROM category
+                                            WHERE name = "family"));
