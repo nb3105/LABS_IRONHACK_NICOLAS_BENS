@@ -24,7 +24,7 @@ questions = [
 ]
 
 with st.form(key='my_form'):
-    answers = [st.slider(question, 0, 5, 2) for question in questions]
+    answers = [st.slider(f'## {i+1}. {question}', 0, 5, 2, key=f"slider_{i}") for i, question in enumerate(questions)]
 
     # Use st.button instead of st.form_submit_button
     submit_button = st.button('Submit forms', on_click=set_stage, args=(1,))
