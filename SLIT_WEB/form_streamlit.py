@@ -26,7 +26,8 @@ questions = [
 with st.form(key='my_form'):
     answers = [st.slider(question, 0, 5, 2) for question in questions]
 
-    submit_button = st.form_submit_button(label='Submit forms', on_click=set_stage, args=(1,))
+    # Use st.button instead of st.form_submit_button
+    submit_button = st.button('Submit forms', on_click=set_stage, args=(1,))
 
 if st.session_state.stage > 0:
     st.write("User responses:")
