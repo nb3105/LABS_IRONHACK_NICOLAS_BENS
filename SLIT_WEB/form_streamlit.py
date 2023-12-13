@@ -26,10 +26,7 @@ questions = [
 
 # Load existing data or create an empty DataFrame
 csv_file_path = 'user_responses.csv'
-try:
-    user_responses = pd.read_csv(csv_file_path)
-except FileNotFoundError:
-    user_responses = pd.DataFrame(columns=['Timestamp'] + questions)
+user_responses = pd.DataFrame(columns=['Timestamp'] + questions)
 
 with st.form(key='my_form'):
     answers = [st.slider(f'## {i+1}. {question}', 0, 5, 2, key=f"slider_{i}") for i, question in enumerate(questions)]
@@ -42,10 +39,6 @@ if st.session_state.stage > 0:
 
     # Add user responses to DataFrame
     user_data = pd.DataFrame([[timestamp] + answers], columns=['Timestamp'] + questions)
-
-    # If the user_responses DataFrame is empty, initialize it with the correct columns
-    if user_responses.empty:
-        user_responses = pd.DataFrame(columns=['Timestamp'] + questions)
 
     # Append user_data to user_responses
     user_responses = user_responses.append(user_data, ignore_index=True)
