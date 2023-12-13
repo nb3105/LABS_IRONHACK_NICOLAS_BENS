@@ -42,7 +42,11 @@ if st.session_state.stage > 0:
 
     # Add user responses to DataFrame
     user_data = pd.DataFrame([[timestamp] + answers], columns=['Timestamp'] + questions)
-    
+
+    # If the user_responses DataFrame is empty, initialize it with the correct columns
+    if user_responses.empty:
+        user_responses = pd.DataFrame(columns=['Timestamp'] + questions)
+
     # Append user_data to user_responses
     user_responses = user_responses.append(user_data, ignore_index=True)
 
