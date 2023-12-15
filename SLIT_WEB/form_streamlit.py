@@ -11,20 +11,15 @@ def set_stage(stage):
 
 # Define the fixed questions
 questions = [
-    "How satisfied are you with the cleanliness of the airport?",
-    "How satisfied are you with the customer service?",
-    "How satisfied are you with the facilities?",
-    "How satisfied are you with the facilities?",
-    "How satisfied are you with the facilities?",
-    "How satisfied are you with the facilities?",
-    "How satisfied are you with the facilities?",
-    "How satisfied are you with the facilities?",
-    "How satisfied are you with the facilities?",
+    "Rate the cleanliness",
+    "Rate the seat comfort",
+    "Ease of booking",
+    "Inflight entertainement",
     "How satisfied are you with the facilities?"
-    # Add more questions as needed
+
 ]
 
-# Load existing data or create an empty DataFrame
+#create an empty DataFrame
 csv_file_path = 'user_responses.csv'
 try:
     user_responses = pd.read_csv(csv_file_path)
@@ -37,7 +32,7 @@ with st.form(key='my_form'):
     submit_button = st.form_submit_button('Submit forms', on_click=set_stage, args=(1,))
 
 if st.session_state.stage > 0:
-    # Get current timestamp
+    #timestamp
     timestamp = pd.to_datetime('now').strftime('%Y-%m-%d %H:%M:%S')
 
     # Add user responses to DataFrame
